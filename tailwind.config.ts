@@ -17,7 +17,10 @@ export default {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
+        background: {
+          DEFAULT: "hsl(var(--background))",
+          bottom: "hsl(var(--background-bottom))",
+        },
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -45,13 +48,19 @@ export default {
         },
         card: {
           DEFAULT: "hsl(var(--card))",
+          dark: "hsl(var(--card-dark))",
           foreground: "hsl(var(--card-foreground))",
         },
         instagram: {
-          magenta: "hsl(var(--instagram-magenta))",
           orange: "hsl(var(--instagram-orange))",
+          magenta: "hsl(var(--instagram-magenta))",
           purple: "hsl(var(--instagram-purple))",
           blue: "hsl(var(--instagram-blue))",
+        },
+        glow: {
+          pink: "hsl(var(--glow-pink))",
+          purple: "hsl(var(--glow-purple))",
+          cyan: "hsl(var(--glow-cyan))",
         },
       },
       borderRadius: {

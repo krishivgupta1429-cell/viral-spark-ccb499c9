@@ -8,85 +8,100 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Dark purple/indigo base */
-    --background: 257 32% 8%;
-    --foreground: 0 0% 98%;
+    /* Main background gradient - deep purple/magenta */
+    --background: 288 100% 5%;
+    --background-bottom: 288 100% 12%;
+    --foreground: 0 0% 100%;
 
-    /* Card styling with glassmorphism */
-    --card: 257 32% 12%;
-    --card-foreground: 0 0% 98%;
+    /* Secondary section backgrounds */
+    --card: 288 100% 8%;
+    --card-dark: 288 100% 11%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 257 32% 12%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 288 100% 8%;
+    --popover-foreground: 0 0% 100%;
 
-    /* Instagram gradient - magenta as primary */
-    --primary: 329 100% 58%;
+    /* Instagram gradient - official colors */
+    --primary: 335 73% 52%;
     --primary-foreground: 0 0% 100%;
 
     /* Secondary purple from Instagram palette */
-    --secondary: 262 52% 47%;
+    --secondary: 271 54% 45%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Muted darker cards */
-    --muted: 257 32% 15%;
-    --muted-foreground: 240 5% 64%;
+    /* Muted darker sections */
+    --muted: 288 100% 11%;
+    --muted-foreground: 270 60% 91%;
 
     /* Cyan accent */
-    --accent: 180 100% 50%;
-    --accent-foreground: 257 32% 8%;
+    --accent: 186 100% 50%;
+    --accent-foreground: 288 100% 5%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 257 32% 20%;
-    --input: 257 32% 15%;
-    --ring: 329 100% 58%;
+    --border: 288 80% 20%;
+    --input: 288 100% 11%;
+    --ring: 335 73% 52%;
 
     --radius: 0.75rem;
 
-    /* Instagram gradient stops */
-    --instagram-magenta: 329 100% 58%;
-    --instagram-orange: 33 100% 57%;
-    --instagram-purple: 262 52% 47%;
-    --instagram-blue: 237 100% 62%;
+    /* Instagram gradient stops - official palette */
+    --instagram-orange: 22 90% 56%;
+    --instagram-magenta: 335 73% 52%;
+    --instagram-purple: 271 54% 45%;
+    --instagram-blue: 235 63% 57%;
 
-    /* Glow effects */
-    --glow-primary: 329 100% 58%;
-    --glow-accent: 180 100% 50%;
+    /* Glow effects - vibrant neon */
+    --glow-pink: 330 100% 59%;
+    --glow-purple: 277 87% 53%;
+    --glow-cyan: 186 100% 50%;
   }
 }
 
 /* Gradient utilities */
 @layer utilities {
+  .bg-main-gradient {
+    background: linear-gradient(180deg, 
+      hsl(var(--background)) 0%, 
+      hsl(var(--background-bottom)) 100%);
+  }
+
   .bg-instagram-gradient {
     background: linear-gradient(135deg, 
-      hsl(var(--instagram-magenta)) 0%, 
-      hsl(var(--instagram-orange)) 50%, 
-      hsl(var(--instagram-purple)) 100%);
+      hsl(var(--instagram-orange)) 0%, 
+      hsl(var(--instagram-magenta)) 35%, 
+      hsl(var(--instagram-purple)) 70%, 
+      hsl(var(--instagram-blue)) 100%);
   }
   
   .text-instagram-gradient {
     background: linear-gradient(135deg, 
-      hsl(var(--instagram-magenta)) 0%, 
-      hsl(var(--instagram-orange)) 50%, 
-      hsl(var(--instagram-purple)) 100%);
+      hsl(var(--instagram-orange)) 0%, 
+      hsl(var(--instagram-magenta)) 35%, 
+      hsl(var(--instagram-purple)) 70%, 
+      hsl(var(--instagram-blue)) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  .glow-primary {
-    box-shadow: 0 0 40px hsl(var(--glow-primary) / 0.3);
+  .glow-pink {
+    box-shadow: 0 0 40px hsl(var(--glow-pink) / 0.4), 0 0 80px hsl(var(--glow-pink) / 0.2);
   }
 
-  .glow-accent {
-    box-shadow: 0 0 40px hsl(var(--glow-accent) / 0.3);
+  .glow-purple {
+    box-shadow: 0 0 40px hsl(var(--glow-purple) / 0.4), 0 0 80px hsl(var(--glow-purple) / 0.2);
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 40px hsl(var(--glow-cyan) / 0.4), 0 0 80px hsl(var(--glow-cyan) / 0.2);
   }
 
   .glass-card {
-    background: hsl(var(--card) / 0.6);
-    backdrop-filter: blur(12px);
-    border: 1px solid hsl(var(--border) / 0.5);
+    background: hsl(var(--card) / 0.4);
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--border) / 0.3);
   }
 }
 
@@ -96,6 +111,7 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-main-gradient text-foreground;
+    background-attachment: fixed;
   }
 }

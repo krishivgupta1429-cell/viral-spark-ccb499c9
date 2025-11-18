@@ -6,10 +6,70 @@ import { motion } from "framer-motion";
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center pt-20 pb-12 overflow-hidden">
-      {/* Background gradient effects */}
+      {/* Layered background effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-instagram-magenta/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-instagram-purple/20 rounded-full blur-3xl"></div>
+        {/* Base Instagram gradient */}
+        <div 
+          className="absolute inset-0" 
+          style={{
+            background: 'radial-gradient(ellipse at top left, #1C0030 0%, #130019 50%, #24003C 100%)'
+          }}
+        />
+        
+        {/* Radial spotlight behind headline text */}
+        <div 
+          className="absolute top-1/4 left-0 w-[600px] h-[600px] opacity-30"
+          style={{
+            background: 'radial-gradient(circle, rgba(60, 15, 92, 0.6) 0%, transparent 70%)',
+            filter: 'blur(80px)'
+          }}
+        />
+        
+        {/* Glow behind Spline 3D hero */}
+        <div 
+          className="absolute top-1/4 right-0 w-[700px] h-[700px] opacity-25"
+          style={{
+            background: 'radial-gradient(ellipse, #FF2D92 0%, #A020F0 40%, #F58529 70%, transparent 100%)',
+            filter: 'blur(100px)'
+          }}
+        />
+        
+        {/* Floating blurred blob - top left */}
+        <div 
+          className="absolute -top-20 -left-20 w-[500px] h-[500px] opacity-20"
+          style={{
+            background: 'radial-gradient(circle, #FF2D92 0%, transparent 70%)',
+            filter: 'blur(90px)'
+          }}
+        />
+        
+        {/* Floating blurred blob - bottom center */}
+        <div 
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] opacity-15"
+          style={{
+            background: 'radial-gradient(ellipse, #8134AF 0%, transparent 70%)',
+            filter: 'blur(100px)'
+          }}
+        />
+        
+        {/* Floating blurred blob - right side */}
+        <div 
+          className="absolute top-10 right-10 w-[400px] h-[400px] opacity-20"
+          style={{
+            background: 'radial-gradient(circle, #00E8FF 0%, transparent 70%)',
+            filter: 'blur(80px)'
+          }}
+        />
+        
+        {/* Subtle noise texture overlay */}
+        <div 
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' /%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat',
+            backgroundSize: '200px 200px'
+          }}
+        />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">

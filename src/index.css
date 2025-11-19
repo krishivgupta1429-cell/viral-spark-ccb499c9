@@ -115,3 +115,49 @@ All colors MUST be HSL.
     background-attachment: fixed;
   }
 }
+
+/* Spline 3D integration styles - transparent background and watermark removal */
+.spline-hero-container iframe,
+.spline-hero-container canvas,
+.spline-wrapper iframe,
+.spline-wrapper canvas {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Remove Spline watermark */
+.spline-hero-container a[href*="spline.design"],
+.spline-hero-container a[href*="Built with Spline"],
+.spline-wrapper a[href*="spline.design"],
+.spline-wrapper a[href*="Built with Spline"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  left: -9999px !important;
+}
+
+/* Ensure Spline canvas maintains aspect ratio and doesn't stretch */
+.spline-hero-container canvas,
+.spline-wrapper canvas {
+  object-fit: contain !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+
+/* Fade-in animation for subtle text */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease forwards;
+}

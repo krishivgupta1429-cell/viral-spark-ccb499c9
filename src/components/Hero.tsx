@@ -1,11 +1,9 @@
-import { Button } from "@/components/ui/button";
-import { Play } from "lucide-react";
-import HeroSpline from "./HeroSpline";
+import TypewriterText from "./TypewriterText";
 import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 pb-16 md:pb-24 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-8 md:py-12">
       {/* Layered background effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-[-1]">
         {/* Base Instagram gradient - dark vibrant gradient (#0A0014 → #18002E → #2A003F) */}
@@ -72,24 +70,95 @@ const Hero = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+      {/* Floating decorative elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-[1]">
+        {/* Small floating gradient orb - top left */}
+        <div 
+          className="absolute top-20 left-10 w-32 h-32 opacity-30 animate-float-slow"
+          style={{
+            background: 'radial-gradient(circle, rgba(236, 72, 153, 0.4) 0%, rgba(168, 85, 247, 0.3) 50%, transparent 100%)',
+            filter: 'blur(40px)',
+            animationDelay: '0s',
+          }}
+        />
+        
+        {/* Small floating gradient orb - middle left */}
+        <div 
+          className="absolute top-1/2 left-20 w-24 h-24 opacity-25 animate-float-slow"
+          style={{
+            background: 'radial-gradient(circle, rgba(245, 133, 41, 0.4) 0%, rgba(236, 72, 153, 0.3) 50%, transparent 100%)',
+            filter: 'blur(35px)',
+            animationDelay: '1.5s',
+          }}
+        />
+        
+        {/* Small floating gradient orb - bottom right */}
+        <div 
+          className="absolute bottom-32 right-16 w-28 h-28 opacity-30 animate-float-slow"
+          style={{
+            background: 'radial-gradient(circle, rgba(168, 85, 247, 0.4) 0%, rgba(139, 92, 246, 0.3) 50%, transparent 100%)',
+            filter: 'blur(40px)',
+            animationDelay: '3s',
+          }}
+        />
+        
+        {/* Small floating gradient orb - top right */}
+        <div 
+          className="absolute top-40 right-32 w-20 h-20 opacity-25 animate-float-slow"
+          style={{
+            background: 'radial-gradient(circle, rgba(236, 72, 153, 0.4) 0%, rgba(245, 133, 41, 0.3) 50%, transparent 100%)',
+            filter: 'blur(30px)',
+            animationDelay: '4.5s',
+          }}
+        />
+      </div>
+
+      <div className="container mx-auto px-6 md:px-10 lg:px-14 relative z-10 w-full max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 xl:gap-20 items-center">
           {/* Left: Text content */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="space-y-8 lg:space-y-10"
+            className="space-y-8 lg:space-y-10 max-w-[820px] flex flex-col items-center lg:items-start"
           >
-            <motion.h1 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] tracking-tight"
+              className="w-full"
             >
-              Find viral content ideas in{" "}
-              <span className="text-instagram-gradient">2 clicks</span>
-            </motion.h1>
+              <h1 className="text-balance font-bold leading-tight tracking-[-0.04em] text-[clamp(2.8rem,5vw,5.5rem)] md:text-[clamp(3.5rem,6vw,6rem)] text-white/95 drop-shadow-[0_0_30px_rgba(255,255,255,0.25)]">
+                <span className="block">Find THE</span>
+                <span className="block">BEST Content</span>
+                <span className="block">Ideas in</span>
+                <span className="block md:whitespace-nowrap">
+                  just{" "}
+                  <span
+                    className="
+                      smooth-glow
+                      inline-block
+                      align-baseline
+                      min-w-[9ch]
+                    "
+                  >
+                    <TypewriterText
+                      text="2 Clicks!"
+                      loop
+                      typingSpeed={80}
+                      deleteSpeed={40}
+                      startDelay={400}
+                      backDelay={1400}
+                      fadeOut={true}
+                      fadeOutDelay={600}
+                      showCursor={true}
+                      cursorChar="|"
+                      className="bg-gradient-to-r from-[#FF4D9D] via-[#FF7A4D] to-[#8F5BFF] bg-clip-text text-transparent"
+                    />
+                  </span>
+                </span>
+              </h1>
+            </motion.div>
 
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -97,70 +166,40 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-lg sm:text-xl md:text-2xl text-foreground/80 leading-relaxed max-w-2xl"
             >
-              Type any keyword and discover proven, high-performing content ideas from Instagram. 
-              See what's trending right now and pivot your content strategy to grow faster.
+              Start exploring viral ideas using ViralityAI today!
             </motion.p>
 
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4 pt-2"
+              className="pt-2"
             >
               <motion.div
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                transition={{
+                  duration: 0.2,
+                }}
               >
-                <Button
-                  size="lg"
-                  className="bg-instagram-gradient hover:opacity-90 transition-all duration-300 text-lg px-8 py-7 shadow-lg shadow-purple-500/20 hover:shadow-purple-500/30 w-full sm:w-auto"
+                <button
+                  className="text-glow font-semibold px-6 py-3 rounded-xl bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 text-white shadow-lg shadow-pink-500/25 hover:shadow-xl hover:shadow-pink-500/40 transition-all text-lg w-full sm:w-auto"
                 >
-                  Try Virality AI Free
-                </Button>
+                  Get Started
+                </button>
               </motion.div>
-              <Button
-                size="lg"
-                variant="outline"
-                className="text-lg px-8 py-7 border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 w-full sm:w-auto"
-              >
-                <Play className="mr-2 h-5 w-5" />
-                Watch Tutorial
-              </Button>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-wrap gap-4 sm:gap-6 text-sm sm:text-base text-muted-foreground pt-2"
-            >
-              <span className="flex items-center gap-2">
-                ✓ No credit card required
-              </span>
-              <span className="flex items-center gap-2">
-                ✓ 30 days free
-              </span>
-              <span className="flex items-center gap-2">
-                ✓ Cancel anytime
-              </span>
             </motion.div>
           </motion.div>
 
-          {/* Right: Spline 3D scene */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="relative flex flex-col items-center justify-center w-full"
-          >
-            <HeroSpline />
-            <div className="flex flex-col items-center mt-3">
-              <p className="text-white/70 text-xs sm:text-sm animate-fade-in">
-                Drag to rotate
-              </p>
-            </div>
-          </motion.div>
+          {/* Right: Static hero visual */}
+          <div className="relative flex flex-col items-center justify-center w-full">
+            <img
+              src="/images/high-angle-hand-holding-smartphone.png"
+              alt="Creator exploring viral Instagram content on a smartphone"
+              className="w-full h-auto max-w-[520px] lg:max-w-[560px] object-contain drop-shadow-2xl"
+              loading="eager"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -168,3 +207,4 @@ const Hero = () => {
 };
 
 export default Hero;
+

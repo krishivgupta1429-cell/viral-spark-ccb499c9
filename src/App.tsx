@@ -14,6 +14,9 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        {/* Simple Vignette Overlay */}
+        <div className="pointer-events-none fixed inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60 z-[2]" />
+        
         <Routes>
           <Route path="/" element={<Index />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
